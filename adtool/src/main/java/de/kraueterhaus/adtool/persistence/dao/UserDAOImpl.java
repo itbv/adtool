@@ -20,6 +20,7 @@ public class UserDAOImpl implements UserDAO
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	//Konstruktor von User
 	public UserDAOImpl()
 	{
 
