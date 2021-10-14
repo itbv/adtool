@@ -29,7 +29,6 @@
 
 						<!-- need to associate this data with user id -->
 						<form:hidden path="id" />
-
 						<div class="form-group">
 							<label for="userName" class="col-md-3 control-label">Benutzername</label>
 							<div class="col-md-9">
