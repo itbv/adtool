@@ -40,7 +40,7 @@
 
 							<!-- construct an "update" link with user id -->
 							<c:url var="updateLink" value="/user/updateForm">
-								<c:param name="userName" value="${user.userName}" />
+								<c:param name="userId" value="${user.id}" />
 							</c:url>
 
 							<!-- construct an "delete" link with user id -->
