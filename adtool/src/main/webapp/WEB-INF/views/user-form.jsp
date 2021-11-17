@@ -24,6 +24,7 @@
 					<div class="panel-title">Benutzer hinzufügen</div>
 				</div>
 				<div class="panel-body">
+					<a href="/adtool/logout" onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
 					<form:form action="saveUser" cssClass="form-horizontal"
 						method="post" modelAttribute="user">
 
@@ -64,7 +65,7 @@
 
 				<div class="form-group">
 					<div class="col-md-offset-3 col-md-9">
-						<form:button cssClass="btn btn-primary">Speichern</form:button>
+						<form:button name="save" cssClass="btn btn-primary">Speichern</form:button>
 					</div>
 				</div>
 

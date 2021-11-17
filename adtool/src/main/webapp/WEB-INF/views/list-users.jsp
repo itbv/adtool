@@ -25,7 +25,7 @@
 				<div class="panel-heading">
 					<div class="panel-title">Benutzerliste</div>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body"><a href="/adtool/logout" onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
 					<table class="table table-striped table-bordered">
 						<tr>
 							<th>Benutzername</th>
