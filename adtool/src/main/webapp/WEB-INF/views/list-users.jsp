@@ -25,7 +25,7 @@
 				<div class="panel-heading">
 					<div class="panel-title">Benutzerliste</div>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body"><a href="/adtool/logout" onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
 					<table class="table table-striped table-bordered">
 						<tr>
 							<th>Benutzername</th>
@@ -40,7 +40,7 @@
 
 							<!-- construct an "update" link with user id -->
 							<c:url var="updateLink" value="/user/updateForm">
-								<c:param name="userName" value="${user.userName}" />
+								<c:param name="userId" value="${user.id}" />
 							</c:url>
 
 							<!-- construct an "delete" link with user id -->
@@ -56,6 +56,7 @@
 								<td>${user.email}</td>
 
 								<td>
+								<!-- Test Commit -->
 									<!-- display the update link --> <a href="${updateLink}">Update</a>
 									| <a href="${deleteLink}"
 									onclick="if (!(confirm('Benutzer wiklich löschen?'))) return false">Delete</a>

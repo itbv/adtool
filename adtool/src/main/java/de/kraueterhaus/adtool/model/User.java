@@ -1,16 +1,10 @@
 package de.kraueterhaus.adtool.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,21 +31,6 @@ public class User
 
 	@Column
 	private String email;
-
-	@Column
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = false)
-	@JoinColumn(name = "foreignUserId")
-	private List<Computer> computer = new ArrayList<Computer>();
-
-	public List<Computer> getComputer()
-	{
-		return computer;
-	}
-
-	public void setComputer(List<Computer> computer)
-	{
-		this.computer = computer;
-	}
 
 	public int getId()
 	{

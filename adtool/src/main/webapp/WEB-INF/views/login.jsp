@@ -21,15 +21,11 @@
 				Hibernate 5 + JSP + PostgreSQL</h2>
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Benutzer hinzufügen</div>
+					<div class="panel-title">Benutzer Login</div>
 				</div>
 				<div class="panel-body">
-					<a href="/adtool/logout" onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
-					<form:form action="saveUser" cssClass="form-horizontal"
-						method="post" modelAttribute="user">
-
-						<!-- need to associate this data with user id -->
-						<form:hidden path="id" />
+					<form:form action="access" cssClass="form-horizontal"
+						method="post" modelAttribute="login">
 
 						<div class="form-group">
 							<label for="userName" class="col-md-3 control-label">Benutzername</label>
@@ -38,34 +34,15 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="firstName" class="col-md-3 control-label">Vorname</label>
+							<label for="firstName" class="col-md-3 control-label">Kennwort</label>
 							<div class="col-md-9">
-								<form:input path="firstName" cssClass="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="surname" class="col-md-3 control-label">Nachname</label>
-							<div class="col-md-9">
-								<form:input path="surname" cssClass="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="department" class="col-md-3 control-label">Abteilung</label>
-							<div class="col-md-9">
-								<form:input path="department" cssClass="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="email" class="col-md-3 control-label">E-Mail</label>
-							<div class="col-md-9">
-								<form:input path="email" cssClass="form-control" />
+								<form:input path="password" type="password" cssClass="form-control" />
 							</div>
 						</div>
 				</div>
-
 				<div class="form-group">
 					<div class="col-md-offset-3 col-md-9">
-						<form:button name="save" cssClass="btn btn-primary">Speichern</form:button>
+						<form:button cssClass="btn btn-primary">Login</form:button>
 					</div>
 				</div>
 
