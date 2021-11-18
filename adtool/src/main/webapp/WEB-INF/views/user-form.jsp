@@ -24,6 +24,7 @@
 					<div class="panel-title">Benutzer hinzufügen</div>
 				</div>
 				<div class="panel-body">
+					<a href="/adtool/logout" onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
 					<form:form action="saveUser" cssClass="form-horizontal"
 						method="post" modelAttribute="user">
 
@@ -60,24 +61,15 @@
 								<form:input path="email" cssClass="form-control" />
 							</div>
 						</div>
-						<!--div class="form-group">
-							<label for="email" class="col-md-3 control-label">Computer</label>
-							<div class="col-md-9">
-								<form:select path="computer" multiple="false">
-									<form:option value="NONE" label="--- Select ---" />
-									<form:options items="${computer}" />
-								</form:select>
-							</div -->
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-offset-3 col-md-9">
-								<form:button cssClass="btn btn-primary">Speichern</form:button>
-							</div>
-						</div>
-
-					</form:form>
 				</div>
+
+				<div class="form-group">
+					<div class="col-md-offset-3 col-md-9">
+						<form:button name="save" cssClass="btn btn-primary">Speichern</form:button>
+					</div>
+				</div>
+
+				</form:form>
 			</div>
 		</div>
 	</div>
