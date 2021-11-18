@@ -21,6 +21,9 @@
 				onclick="window.location.href='showForm'; return false;"
 				class="btn btn-primary" />
 				<br/><br/>
+				<label for="suche">Suchbegriff eingeben</label> 
+<input type="search" id="suche" placeholder="Benutzername">
+
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title">Benutzerliste</div>
