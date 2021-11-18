@@ -3,6 +3,7 @@ package de.kraueterhaus.adtool.persistence.dao;
 import java.util.List;
 
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -45,6 +46,23 @@ public class UserDAOImpl implements UserDAO
 	{
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(user);		
+	}
+
+	@Override
+	public List <User> getAllUsersByName (String Keyword)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<User> cq = cb.createQuery(User.class);
+		Root<User> root = cq.from(User.class);
+		cq.select(root);
+		Query query = session.createQuery(cq);
+		
+		List<User> users = query.getResultList();
+		
+	    TypedQuery<User> tquery = session.createQuery(" select * from users where user.username LIKE :searchKeyword",User.class);
+	    query.setParameter("searchKeyword", "%"+Keyword+"%");
+	    return query.getResultList();
 	}
 
 	@Override

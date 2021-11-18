@@ -62,7 +62,7 @@
 								<!-- Test Commit -->
 									<!-- display the update link --> <a href="${updateLink}">Update</a>
 									| <a href="${deleteLink}"
-									onclick="if (!(confirm('Benutzer wiklich löschen?'))) return false">Delete</a>
+									onclick="if (!(confirm('Benutzer wirklich löschen?'))) return false">Delete</a>
 								</td>
 
 							</tr>

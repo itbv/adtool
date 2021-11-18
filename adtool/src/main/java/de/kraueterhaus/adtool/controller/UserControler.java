@@ -36,6 +36,14 @@ public class UserControler extends MainController
 		model.addAttribute("users", users);
 		return "list-users";
 	}
+	
+	@GetMapping("/list")
+	public String listUsers(Model model)
+	{
+		List<User> users = userService.getUsers();
+		model.addAttribute("users", users);
+		return "list-users";
+	}
 
 	@GetMapping("/showForm")
 	public String showFormForAdd(Model model)
