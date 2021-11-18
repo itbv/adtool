@@ -56,6 +56,7 @@
 								<td>${user.email}</td>
 
 								<td>
+								<!-- Test Commit -->
 									<!-- display the update link --> <a href="${updateLink}">Update</a>
 									| <a href="${deleteLink}"
 									onclick="if (!(confirm('Benutzer wiklich löschen?'))) return false">Delete</a>

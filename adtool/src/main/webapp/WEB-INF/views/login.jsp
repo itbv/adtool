@@ -36,7 +36,7 @@
 						<div class="form-group">
 							<label for="firstName" class="col-md-3 control-label">Kennwort</label>
 							<div class="col-md-9">
-								<form:input path="password" cssClass="form-control" />
+								<form:input path="password" type="password" cssClass="form-control" />
 							</div>
 						</div>
 				</div>
