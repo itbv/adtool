@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-1 col-md-10">
-			<h2>AD-Tool -User Relationship Manager</h2>
+			<h2>AD-Tool </h2>
 			<hr />
 
 			<input type="button" value="Add User"

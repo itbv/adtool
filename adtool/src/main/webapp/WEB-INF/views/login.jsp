@@ -17,8 +17,7 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h2 class="text-center">AD Tool based on Spring MVC 5 +
-				Hibernate 5 + JSP + PostgreSQL</h2>
+			<h2 class="text-center">AD Tool Login</h2>
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title">Benutzer Login</div>
