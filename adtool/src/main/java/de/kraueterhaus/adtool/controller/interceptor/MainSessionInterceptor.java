@@ -19,6 +19,10 @@ public class MainSessionInterceptor implements HandlerInterceptor
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws IOException
 	{
+		if (modelAndView == null) {
+			return;
+		}
+		
 		boolean isLoginView = ADToolRootController.VIEW_LOGIN_NAME.equals(modelAndView.getViewName());
 		Login login = (Login) modelAndView.getModel().get(ADToolRootController.MODEL_LOGIN_NAME);
 		String sessionToken = (String) request.getSession().getAttribute(ADToolRootController.SESSION_TOKEN_KEY);
