@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "user_table")
@@ -31,6 +32,9 @@ public class User
 
 	@Column
 	private String email;
+	
+	@Transient
+	private String sucheUsername;
 
 	public int getId()
 	{
@@ -92,4 +96,17 @@ public class User
 		this.email = email;
 	}
 
+	public String getSucheUsername()
+	{
+		return sucheUsername;
+	}
+
+	public void setSucheUsername(String sucheUsername)
+	{
+		this.sucheUsername = sucheUsername;
+	}
+
 }
+
+
+

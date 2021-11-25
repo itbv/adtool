@@ -15,5 +15,7 @@ public interface UserDAO
 
 	public void deleteUser(int id);
 
-	public List<User> getAllUsersByName(String Keyword);
+	
+
+	public List<User> getByUsername(String userName);
 }
