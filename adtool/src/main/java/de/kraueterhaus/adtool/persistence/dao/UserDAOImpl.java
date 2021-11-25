@@ -3,12 +3,16 @@ package de.kraueterhaus.adtool.persistence.dao;
 import java.util.List;
 
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -46,6 +50,19 @@ public class UserDAOImpl implements UserDAO
 		Session currentSession = sessionFactory.getCurrentSession();
 		currentSession.saveOrUpdate(user);		
 	}
+
+  
+	@Override
+    public List<User> getByUsername(String userName)
+    {
+        Session session = sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(User.class);
+        criteria.add(Restrictions.like("userName", userName, MatchMode.ANYWHERE));
+
+        List<User> users = criteria.list();
+        return users;
+    }
+
 
 	@Override
 	public User getUser(int id)

@@ -13,4 +13,8 @@ public interface UserService
 	public User getUser(int id);
 
 	public void deleteUser(int id);
+	
+	public List <User> suche (String id);
+	
+	
 }

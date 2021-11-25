@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>D Tool based on Spring MVC 5 + Hibernate 5 + JSP +
-	PostgreSQL</title>
+<title>AD Tool</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -17,11 +16,10 @@
 <body>
 	<div class="container">
 		<div class="col-md-offset-2 col-md-7">
-			<h2 class="text-center">AD Tool based on Spring MVC 5 +
-				Hibernate 5 + JSP + PostgreSQL</h2>
+			<h2 class="text-center">AD Tool</h2>
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<div class="panel-title">Benutzer Login</div>
+					<div class="panel-title" align=center>Login</div>
 				</div>
 				<div class="panel-body">
 					<form:form action="access" cssClass="form-horizontal"
@@ -40,11 +38,11 @@
 							</div>
 						</div>
 				</div>
-				<div class="form-group">
-					<div class="col-md-offset-3 col-md-9">
-						<form:button cssClass="btn btn-primary">Login</form:button>
+				
+					<div id="button">
+						<form:button id="button" >Login</form:button>
 					</div>
-				</div>
+				
 
 				</form:form>
 			</div>

@@ -32,8 +32,13 @@ public class UserControler extends MainController
 	@GetMapping("/list")
 	public String listUsers(Model model)
 	{
-		List<User> users = userService.getUsers();
-		model.addAttribute("users", users);
+		if (model.asMap().get("user") == null)
+		{
+			List<User> users = userService.getUsers();
+			model.addAttribute("users", users);
+			model.addAttribute("user", new User());
+		}
+
 		return "list-users";
 	}
 
@@ -64,6 +69,16 @@ public class UserControler extends MainController
 	public String deleteUser(@RequestParam("userId") int id)
 	{
 		userService.deleteUser(id);
+		return "redirect:/user/list";
+	}
+
+	@RequestMapping(value = "/suche", method = RequestMethod.POST, params = "btnSuche")
+	public String suche(@Valid @ModelAttribute("user") User user, Model model)
+	{
+
+		List<User> users = userService.suche(user.getSucheUsername());
+		model.addAttribute("users", users);
+
 		return "redirect:/user/list";
 	}
 }
