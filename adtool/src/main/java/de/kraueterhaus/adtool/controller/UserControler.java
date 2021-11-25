@@ -20,8 +20,6 @@ import de.kraueterhaus.adtool.model.User;
 @Controller
 @RequestMapping("/user")
 public class UserControler extends MainController {
-     private List<User> searchedUsers = null;
-
      public UserControler(HttpSession session)
      {
 
@@ -33,18 +31,9 @@ public class UserControler extends MainController {
      @GetMapping("/list")
      public String listUsers(Model model)
      {
-         if (this.searchedUsers == null)
-         {
-             List<User> users = userService.getUsers();
-             model.addAttribute("users", users);
-         } else {
-             model.addAttribute("users", this.searchedUsers);
-         }
-
+         List<User> users = userService.getUsers();
+         model.addAttribute("users", users);
          model.addAttribute("user", new User());
-
-         this.searchedUsers = null;
-
          return "list-users";
      }
 
@@ -82,7 +71,10 @@ public class UserControler extends MainController {
      public String suche(@Valid @ModelAttribute("user") User user, Model
 model)
      {
-         this.searchedUsers = userService.suche(user.getSucheUsername());
-         return "redirect:/user/list";
+         model.addAttribute("users",
+userService.suche(user.getSucheUsername()));
+
+         return "list-users";
      }
 }
+
