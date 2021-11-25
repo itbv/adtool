@@ -19,66 +19,70 @@ import de.kraueterhaus.adtool.model.User;
 
 @Controller
 @RequestMapping("/user")
-public class UserControler extends MainController
-{
-	public UserControler(HttpSession session)
-	{
+public class UserControler extends MainController {
+     private List<User> searchedUsers = null;
 
-	}
+     public UserControler(HttpSession session)
+     {
 
-	@Autowired
-	private UserService userService;
+     }
 
-	@GetMapping("/list")
-	public String listUsers(Model model)
-	{
-		if (model.asMap().get("user") == null)
-		{
-			List<User> users = userService.getUsers();
-			model.addAttribute("users", users);
-			model.addAttribute("user", new User());
-		}
+     @Autowired
+     private UserService userService;
 
-		return "list-users";
-	}
+     @GetMapping("/list")
+     public String listUsers(Model model)
+     {
+         if (this.searchedUsers == null)
+         {
+             List<User> users = userService.getUsers();
+             model.addAttribute("users", users);
+         } else {
+             model.addAttribute("users", this.searchedUsers);
+         }
 
-	@GetMapping("/showForm")
-	public String showFormForAdd(Model model)
-	{
-		User user = new User();
-		model.addAttribute("user", user);
-		return "user-form";
-	}
+         model.addAttribute("user", new User());
 
-	@RequestMapping(value = "/saveUser", method = RequestMethod.POST, params = "save")
-	public String saveUser(@Valid @ModelAttribute("user") User user)
-	{
-		userService.saveUser(user);
-		return "redirect:/user/list";
-	}
+         this.searchedUsers = null;
 
-	@GetMapping("/updateForm")
-	public String showFormForUpdate(@RequestParam("userId") int id, Model model)
-	{
-		User user = userService.getUser(id);
-		model.addAttribute("user", user);
-		return "user-form";
-	}
+         return "list-users";
+     }
 
-	@GetMapping("/delete")
-	public String deleteUser(@RequestParam("userId") int id)
-	{
-		userService.deleteUser(id);
-		return "redirect:/user/list";
-	}
+     @GetMapping("/showForm")
+     public String showFormForAdd(Model model)
+     {
+         User user = new User();
+         model.addAttribute("user", user);
+         return "user-form";
+     }
 
-	@RequestMapping(value = "/suche", method = RequestMethod.POST, params = "btnSuche")
-	public String suche(@Valid @ModelAttribute("user") User user, Model model)
-	{
+     @RequestMapping(value = "/saveUser", method = RequestMethod.POST, params = "save")
+     public String saveUser(@Valid @ModelAttribute("user") User user)
+     {
+         userService.saveUser(user);
+         return "redirect:/user/list";
+     }
 
-		List<User> users = userService.suche(user.getSucheUsername());
-		model.addAttribute("users", users);
+     @GetMapping("/updateForm")
+     public String showFormForUpdate(@RequestParam("userId") int id, Model model)
+     {
+         User user = userService.getUser(id);
+         model.addAttribute("user", user);
+         return "user-form";
+     }
 
-		return "redirect:/user/list";
-	}
+     @GetMapping("/delete")
+     public String deleteUser(@RequestParam("userId") int id)
+     {
+         userService.deleteUser(id);
+         return "redirect:/user/list";
+     }
+
+     @RequestMapping(value = "/suche", method = RequestMethod.POST, params = "btnSuche")
+     public String suche(@Valid @ModelAttribute("user") User user, Model
+model)
+     {
+         this.searchedUsers = userService.suche(user.getSucheUsername());
+         return "redirect:/user/list";
+     }
 }
