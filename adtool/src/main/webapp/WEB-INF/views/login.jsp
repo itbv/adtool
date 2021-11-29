@@ -39,7 +39,7 @@
 						</div>
 				</div>
 				
-					<div id="button">
+					<div align = center>
 						<form:button id="button" >Login</form:button>
 					</div>
 				

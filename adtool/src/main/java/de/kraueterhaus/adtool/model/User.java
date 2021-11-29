@@ -33,6 +33,16 @@ public class User
 	@Column
 	private String email;
 	
+	@Column
+	private String pcName;
+	
+	@Column
+	private String account;
+	
+	
+	@Column
+	private String state;
+	
 	@Transient
 	private String sucheUsername;
 
@@ -94,6 +104,36 @@ public class User
 	public void setEmail(String email)
 	{
 		this.email = email;
+	}
+	
+	public String getpcName()
+	{
+		return pcName;
+	}
+
+	public void setPcName(String pcName)
+	{
+		this.pcName = pcName;
+	}
+	public String getAccount()
+	{
+		return account;
+	}
+
+	public void setAccount(String account)
+	{
+		this.account = account;
+	}
+	
+	
+	public String getState()
+	{
+		return state;
+	}
+
+	public void setState(String state)
+	{
+		this.state = state;
 	}
 
 	public String getSucheUsername()

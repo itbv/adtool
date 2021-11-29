@@ -61,6 +61,26 @@
 								<form:input path="email" cssClass="form-control" />
 							</div>
 						</div>
+							<div class="form-group">
+							<label for="pcName" class="col-md-3 control-label">PC-Name</label>
+							<div class="col-md-9">
+								<form:input path="pcName" cssClass="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="state" class="col-md-3 control-label">Zustand</label>
+							<div class="col-md-9">
+								<form:input path="state" cssClass="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="account" class="col-md-3 control-label">Konto</label>
+							<div class="col-md-9">
+								<form:input path="account" cssClass="form-control" />
+							</div>
+						</div>
+						
+						
 				</div>
 
 				<div class="form-group">

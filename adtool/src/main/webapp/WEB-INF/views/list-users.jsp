@@ -16,21 +16,23 @@
 		modelAttribute="user">
 		<div class="container">
 			<div class="col-md-offset-1 col-md-10">
-				<h2>AD-Tool</h2>
+				<h2 >AD-Tool</h2>
 				<hr />
 
-				<input type="button" value="Add User"
+				<input type="button" id=button value="Add User"
 					onclick="window.location.href='showForm'; return false;" />
 
-				<form:input path="sucheUsername" cssClass="form-control" /> 
-				<form:button name="btnSuche">Suchen</form:button>
+				<form:input path="sucheUsername" cssClass="form-control" placeholder="Benutzername"/> 
+				<div >
+				<form:button  name="btnSuche">Suchen</form:button>
+				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<div class="panel-title">Benutzerliste</div>
 					</div>
 					<div class="panel-body">
 						<a href="/adtool/logout"
-							onclick="if (!(confirm('Benutzer wiklich abmelden?'))) return false">Abmelden</a>
+							onclick="if (!(confirm('Benutzer wirklich abmelden?'))) return false">Abmelden</a>
 						<table class="table table-striped table-bordered">
 							<tr>
 								<th>Benutzername</th>
@@ -38,6 +40,9 @@
 								<th>Nachname</th>
 								<th>Abteilung</th>
 								<th>E-Mail</th>
+								<th>PC-Name</th>
+								<th>Zustand</th>
+								<th>Konto</th>
 							</tr>
 
 							<!-- loop over and print our users -->
@@ -59,6 +64,10 @@
 									<td>${user.surname}</td>
 									<td>${user.department}</td>
 									<td>${user.email}</td>
+									<td>${user.pcName}</td>
+									<td>${user.state}</td>				
+									<td>${user.account}</td>
+									
 
 									<td>
 										<!-- Test Commit --> <!-- display the update link --> <a
