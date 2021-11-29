@@ -34,6 +34,7 @@ public class UserControler extends MainController {
          List<User> users = userService.getUsers();
          model.addAttribute("users", users);
          model.addAttribute("user", new User());
+   
          return "list-users";
      }
 

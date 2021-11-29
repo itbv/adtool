@@ -39,8 +39,8 @@
 						</div>
 				</div>
 				
-					<div align = center>
-						<form:button id="button" >Login</form:button>
+					<div style="text-align:center">
+						<form:button class="button" >Login</form:button>
 					</div>
 				
 

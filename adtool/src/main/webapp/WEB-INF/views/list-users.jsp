@@ -16,23 +16,24 @@
 		modelAttribute="user">
 		<div class="container">
 			<div class="col-md-offset-1 col-md-10">
-				<h2 >AD-Tool</h2>
+				<h2 style="text-align:center">AD-Tool</h2>
+				<a href="/adtool/logout"
+							onclick="if (!(confirm('Möchten Sie sich wirklich abmelden?'))) return false">Abmelden</a>
 				<hr />
 
-				<input type="button" id=button value="Add User"
+				<input type="button"  class=button value="Add User"
 					onclick="window.location.href='showForm'; return false;" />
 
 				<form:input path="sucheUsername" cssClass="form-control" placeholder="Benutzername"/> 
-				<div >
-				<form:button  name="btnSuche">Suchen</form:button>
+				<div style="text-align:center" >
+				<form:button class="button" name="btnSuche">Suchen</form:button>
 				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<div class="panel-title">Benutzerliste</div>
 					</div>
 					<div class="panel-body">
-						<a href="/adtool/logout"
-							onclick="if (!(confirm('Benutzer wirklich abmelden?'))) return false">Abmelden</a>
+						
 						<table class="table table-striped table-bordered">
 							<tr>
 								<th>Benutzername</th>
