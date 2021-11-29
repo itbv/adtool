@@ -8,21 +8,28 @@ html{
 body{
     margin:0
 }
-.button {
+#logo{
+	float: right;
+    width: 234px;
+    height: 123px;
+    margin-left: 20px;
+    margin: 20%;
+    border: 1px solid red
+}
+#button {
   background-color: #04AA6D;
   color: white;
   text-align: center;
-  border-radius: 20%;
+  border-radius: 10px;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 20%;
-  hight: 50%;
-  
+  width: 15%;
+  hight: 30% 
 }
 
-.button:hover {
+#button:hover {
   opacity: 0.8;
 }
 #suche {
@@ -4676,7 +4683,7 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 }
 .panel{
     margin-bottom:20px;
-    background-color:#008040;
+    background-color:#ffffff;
     border:1px solid transparent;
     border-radius:4px;
     -webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);
