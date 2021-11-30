@@ -78,19 +78,25 @@
 							</div>
 						</div>
 						<div class="form-group">
+						
 							<label for="state" class="col-md-3 control-label">Zustand</label>
 							<div class="col-md-9">
-								<form:input path="state" cssClass="form-control" />
+								<form:checkbox path="state" cssClass="form-control" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="account" class="col-md-3 control-label">Konto</label>
 							<div class="col-md-9">
-								<form:input path="account" cssClass="form-control" />
+								<form:checkbox path="account" cssClass="form-control" />
 							</div>
 						</div>
 						
-						
+							<div class="form-group">
+							<label for="password" class="col-md-3 control-label">Password</label>
+							<div class="col-md-9">
+								<form:input path="password" cssClass="form-control" />
+							</div>
+						</div>
 				</div>
 
 			

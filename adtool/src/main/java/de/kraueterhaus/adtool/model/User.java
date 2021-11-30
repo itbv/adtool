@@ -55,11 +55,14 @@ public class User
 	private String pcName;
 	
 	@Column
-	private String account;
+	private boolean account;
 	
 	
 	@Column
-	private String state;
+	private boolean state;
+	
+	@Column
+	private String password;
 	
 	@Transient
 	private String sucheUsername;
@@ -133,23 +136,23 @@ public class User
 	{
 		this.pcName = pcName;
 	}
-	public String getAccount()
+	public boolean isAccount()
 	{
 		return account;
 	}
 
-	public void setAccount(String account)
+	public void setAccount(boolean account)
 	{
 		this.account = account;
 	}
 	
 	
-	public String getState()
+	public boolean isState()
 	{
 		return state;
 	}
 
-	public void setState(String state)
+	public void setState(boolean state)
 	{
 		this.state = state;
 	}
@@ -162,6 +165,15 @@ public class User
 	public void setSucheUsername(String sucheUsername)
 	{
 		this.sucheUsername = sucheUsername;
+	}
+	public String getPassword()
+	{
+		return password;
+	}
+
+	public void setPassword(String password)
+	{
+		this.password = password;
 	}
 
 }

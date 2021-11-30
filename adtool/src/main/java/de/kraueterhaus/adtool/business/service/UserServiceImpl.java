@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.kraueterhaus.adtool.model.User;
 import de.kraueterhaus.adtool.persistence.dao.UserDAO;
+import de.kraueterhaus.adtool.security.Credentials;
+import de.kraueterhaus.adtool.security.PasswordSecurityHandler;
 
 @Service
 public class UserServiceImpl implements UserService
@@ -21,12 +23,13 @@ public class UserServiceImpl implements UserService
 	{
 		return userDAO.getUsers();
 	}
-	
 
 	@Override
 	@Transactional
 	public void saveUser(User user)
 	{
+		Credentials credentials = PasswordSecurityHandler.getInstance().getSecureCredentials(user.getPassword());
+		user.setPassword(credentials.getEncryptedPassword());
 		userDAO.saveUser(user);
 	}
 
@@ -43,13 +46,12 @@ public class UserServiceImpl implements UserService
 	{
 		userDAO.deleteUser(id);
 	}
-	
+
 	@Override
 	@Transactional
-	public List<User> suche (String id)
+	public List<User> suche(String id)
 	{
 		return userDAO.getByUsername(id);
 	}
-
 
 }
