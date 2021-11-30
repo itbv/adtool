@@ -28,12 +28,12 @@
 		modelAttribute="user">
 		
 			
-				<input type="button"  class=button value="Add User"
+				<input type="button"  id=button value="Add User"
 					onclick="window.location.href='showForm'; return false;" />
 
 				<form:input path="sucheUsername" cssClass="form-control" placeholder="Benutzername"/> 
 				<div style="text-align:center" >
-				<form:button class="button" name="btnSuche">Suchen</form:button>
+				<form:button id="button" name="btnSuche">Suchen</form:button>
 				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">

@@ -49,7 +49,7 @@
 				</div>
 				
 					<div style="text-align:center">
-						<form:button class="button" >Login</form:button>
+						<form:button id="button" >Login</form:button>
 					</div>
 				
 
