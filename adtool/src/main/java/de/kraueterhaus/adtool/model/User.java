@@ -57,7 +57,6 @@ public class User
 	@Column
 	private boolean account;
 	
-	
 	@Column
 	private boolean state;
 	
@@ -136,6 +135,7 @@ public class User
 	{
 		this.pcName = pcName;
 	}
+	
 	public boolean isAccount()
 	{
 		return account;
@@ -145,7 +145,6 @@ public class User
 	{
 		this.account = account;
 	}
-	
 	
 	public boolean isState()
 	{
