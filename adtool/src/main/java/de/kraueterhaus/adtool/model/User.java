@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "user_table")
@@ -17,6 +20,21 @@ public class User
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
+    @Lob
+    @Column
+    @Type(type = "org.hibernate.type.BinaryType")
+    private byte[] salt;
+
+    public byte[] getSalt()
+    {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt)
+    {
+        this.salt = salt;
+    }
 
 	@Column
 	private String userName;
