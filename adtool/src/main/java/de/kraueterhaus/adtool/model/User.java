@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "user_table")
@@ -17,6 +20,21 @@ public class User
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
+    @Lob
+    @Column
+    @Type(type = "org.hibernate.type.BinaryType")
+    private byte[] salt;
+
+    public byte[] getSalt()
+    {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt)
+    {
+        this.salt = salt;
+    }
 
 	@Column
 	private String userName;
@@ -32,6 +50,19 @@ public class User
 
 	@Column
 	private String email;
+	
+	@Column
+	private String pcName;
+	
+	@Column
+	private boolean account;
+	
+	
+	@Column
+	private boolean state;
+	
+	@Column
+	private String password;
 	
 	@Transient
 	private String sucheUsername;
@@ -95,6 +126,36 @@ public class User
 	{
 		this.email = email;
 	}
+	
+	public String getpcName()
+	{
+		return pcName;
+	}
+
+	public void setPcName(String pcName)
+	{
+		this.pcName = pcName;
+	}
+	public boolean isAccount()
+	{
+		return account;
+	}
+
+	public void setAccount(boolean account)
+	{
+		this.account = account;
+	}
+	
+	
+	public boolean isState()
+	{
+		return state;
+	}
+
+	public void setState(boolean state)
+	{
+		this.state = state;
+	}
 
 	public String getSucheUsername()
 	{
@@ -104,6 +165,15 @@ public class User
 	public void setSucheUsername(String sucheUsername)
 	{
 		this.sucheUsername = sucheUsername;
+	}
+	public String getPassword()
+	{
+		return password;
+	}
+
+	public void setPassword(String password)
+	{
+		this.password = password;
 	}
 
 }
