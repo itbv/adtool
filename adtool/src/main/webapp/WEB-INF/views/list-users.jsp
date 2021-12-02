@@ -31,7 +31,7 @@
 		modelAttribute="user">
 
 
-		<input type="button" id=button value="Add User"
+		<input type="button" id=button value="Benutzer hinzufügen"
 			onclick="window.location.href='showForm'; return false;" />
 
 		<form:input path="sucheUsername" cssClass="form-control"
@@ -78,9 +78,9 @@
 							<td>${user.department}</td>
 							<td>${user.email}</td>
 							<td>${user.pcName}</td>
-							<td><input type="checkbox" name="" checked="${user.state}">
+							<td><input type="checkbox" style="width:100%;" name="" checked="${user.state}">
 								aktiv</input></td>
-							<td><input type="checkbox" name="" value="${user.account}">
+							<td><input type="checkbox" style="width:100%;"name="" checked="${user.account}">
 								gültig</input></td>
 							<td> <a href="${updateLink}">zurücksetzen</a></td>
 

@@ -6,8 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>D Tool based on Spring MVC 5 + Hibernate 5 + JSP +
-	PostgreSQL</title>
+<title>AD Tool</title>
 <link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/js/jquery-1.11.1.min.js" />"></script>
@@ -84,7 +83,7 @@
 								<form:checkbox path="state" cssClass="form-control" />
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group" >
 							<label for="account" class="col-md-3 control-label">Konto</label>
 							<div class="col-md-9">
 								<form:checkbox path="account" cssClass="form-control" />

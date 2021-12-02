@@ -45,10 +45,10 @@ public class Testcases
 		User user = new User();
 		
 		assertEquals(0, user.getId());
-
+ 
 		user.setDepartment("department 1");
 		user.setEmail("mail1");
-		user.setPassword("DesIstEinKennwort");
+		user.setPassword("DasIstEinKennwort");
 
 		service.saveUser(user);
 
@@ -76,3 +76,6 @@ public class Testcases
 		assertEquals(securedPassword, cr.getEncryptedPassword());
 	}
 }
+
+
+
