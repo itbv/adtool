@@ -7,9 +7,20 @@ import org.springframework.transaction.annotation.Transactional;
 import de.kraueterhaus.adtool.model.intern.ADToolUser;
 import de.kraueterhaus.adtool.persistence.dao.intern.ADToolUserDAO;
 
+/**
+ * Implementation des Interface ADToolUserService. Zugriffsmöglichkeiten
+ * innerhalb der Serviceschicht (Zweite Schicht) innerhalb der
+ * Dreic-Schichten-Architektur.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 @Service
 public class ADToolUserServiceImpl implements ADToolUserService
 {
+	/**
+	 * {@inheritDoc}
+	 */
 	@Autowired
 	private ADToolUserDAO userDao;
 

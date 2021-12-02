@@ -14,16 +14,25 @@ import org.springframework.web.servlet.view.JstlView;
 import de.kraueterhaus.adtool.controller.interceptor.MainSessionInterceptor;
 
 /**
- * @author 
+ * Legt die Grundlagen für den Spring-MVC Kontext fest. Das abzusuchende
+ * Verzeichnis bezüglich der Modell-Klassen wird auf das Base-Package
+ * <code>de.kraueterhaus.adtool</code> festgelegt.
+ * 
+ * @author www.kraueterhaus.de
  */
-
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "de.kraueterhaus.adtool" })
+@ComponentScan(basePackages =
+{ "de.kraueterhaus.adtool" })
 public class WebMvcConfig implements WebMvcConfigurer
 {
 
 	@Bean
+	/**
+	 * Initialisierung des Resolver und Festlegung der Views.
+	 * 
+	 * @return
+	 */
 	public InternalResourceViewResolver resolver()
 	{
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -34,13 +43,23 @@ public class WebMvcConfig implements WebMvcConfigurer
 	}
 
 	@Override
+	/**
+	 * Legt den Ressourcen-Handler fest. Hier werden z. B. Datenbank-Properties für
+	 * Hibernate definiert.
+	 */
 	public void addResourceHandlers(ResourceHandlerRegistry registry)
 	{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-	
+
 	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-	    registry.addInterceptor(new MainSessionInterceptor());
+	/**
+	 * Fügt Interceptoren zum Abfangen bestimmter Verhaltensmuster hinzu. Ein
+	 * Eingriff in den Prozessablauf von Spring wird dadurch gewährleistet (z. B.
+	 * Prüfung einer validen Session).
+	 */
+	public void addInterceptors(InterceptorRegistry registry)
+	{
+		registry.addInterceptor(new MainSessionInterceptor());
 	}
 }
