@@ -31,7 +31,7 @@
 		modelAttribute="user">
 
 
-		<input type="button" id=button value="Add User"
+		<input type="button" id=button value="Benutzer hinzufügen"
 			onclick="window.location.href='showForm'; return false;" />
 
 		<form:input path="sucheUsername" cssClass="form-control"
