@@ -14,6 +14,17 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * Beschreibung des Datenbankzugriffs zur Persistierung von Objekten im Sinne
+ * des ORM-Handlings auf einer Datenbank.
+ * 
+ * Die Beschreibung der Datenbank, der Zugriffsrechte und der entsprechenden
+ * Dialekte und Treiber werden in der Datei <code>database.properties</code> im
+ * Ressourcen-Verzeichnis definiert.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 @Configuration
 @PropertySource("classpath:database.properties")
 @EnableTransactionManagement
@@ -24,6 +35,12 @@ public class HibernatePersistenceContext
 	private Environment environment;
 
 	@Bean
+	/**
+	 * Liefert die SessionFactory für das Spring-Management zum Bereitstellen
+	 * einzelner Datenbanksitzungen.
+	 * 
+	 * @return
+	 */
 	public LocalSessionFactoryBean sessionFactory()
 	{
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -35,6 +52,12 @@ public class HibernatePersistenceContext
 	}
 
 	@Bean
+	/**
+	 * Liefert die Zugangsdaten einer beliebigen Datenbank, welche in Datei
+	 * <code>datenbank.properties</code> definiert werden.
+	 * 
+	 * @return
+	 */
 	public DataSource dataSource()
 	{
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -45,6 +68,12 @@ public class HibernatePersistenceContext
 		return dataSource;
 	}
 
+	/**
+	 * Liefert die Kofiguration einer beliebigen Datenbank, welche in Datei
+	 * <code>datenbank.properties</code> definiert werden.
+	 * 
+	 * @return
+	 */
 	private Properties hibernateProperties()
 	{
 		Properties properties = new Properties();
@@ -55,6 +84,13 @@ public class HibernatePersistenceContext
 		return properties;
 	}
 
+	/**
+	 * Wird von Spring für die Transaktionen innerhalb der Session benötigt, da
+	 * ADTool eine 'Single Hibernate Session Factory' für den transaktionalen
+	 * Datenzugriff auf das DBMS verwendet.
+	 * 
+	 * @return
+	 */
 	@Bean
 	public HibernateTransactionManager getTransactionManager()
 	{

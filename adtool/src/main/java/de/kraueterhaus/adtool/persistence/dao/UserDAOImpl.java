@@ -3,7 +3,6 @@ package de.kraueterhaus.adtool.persistence.dao;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -18,17 +17,30 @@ import org.springframework.stereotype.Repository;
 
 import de.kraueterhaus.adtool.model.User;
 
+/**
+ * Persistierung eines User-Objektes auf einer Datenbank, welche in der Klasse
+ * <code>HibernatePersistenceContext</code> definiert wird.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 @Repository
 public class UserDAOImpl implements UserDAO
 {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/**
+	 * Default-Konstruktor ohne implementierte Funktion. Wird von Spring benötigt.
+	 */
 	public UserDAOImpl()
 	{
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public List<User> getUsers()
 	{
@@ -38,32 +50,39 @@ public class UserDAOImpl implements UserDAO
 		Root<User> root = cq.from(User.class);
 		cq.select(root);
 		Query query = session.createQuery(cq);
-		
+
 		List<User> users = query.getResultList();
-		
+
 		return users;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void saveUser(User user)
 	{
 		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(user);		
+		currentSession.saveOrUpdate(user);
 	}
 
-  
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-    public List<User> getByUsername(String userName)
-    {
-        Session session = sessionFactory.getCurrentSession();
-        Criteria criteria = session.createCriteria(User.class);
-        criteria.add(Restrictions.like("userName", userName, MatchMode.ANYWHERE));
+	public List<User> getByUsername(String userName)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = session.createCriteria(User.class);
+		criteria.add(Restrictions.like("userName", userName, MatchMode.ANYWHERE));
 
-        List<User> users = criteria.list();
-        return users;
-    }
+		List<User> users = criteria.list();
+		return users;
+	}
 
-
+	/**
+	 * Liefert einen Benutzer anhand des Primärschlüssels der Datenbank.
+	 */
 	@Override
 	public User getUser(int id)
 	{
@@ -72,12 +91,15 @@ public class UserDAOImpl implements UserDAO
 		return user;
 	}
 
+	/**
+	 *Löscht einen Benutzer auf der Datenbank anhand des Primärschlüssels.
+	 */
 	@Override
 	public void deleteUser(int id)
 	{
 		Session session = sessionFactory.getCurrentSession();
 		User user = session.byId(User.class).load(id);
-		session.delete(user);		
+		session.delete(user);
 	}
 
 }

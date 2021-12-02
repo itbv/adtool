@@ -11,6 +11,16 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.Type;
 
+/**
+ * Hibernate-Entity zur Persistierung der Objekte und deren Attribute auf einer
+ * Datenbank. Dient auch als Model-Objekt zur Interaktion innerhalb der Ersten
+ * Schicht des MVC-Paradigmas.
+ * 
+ * Verknüpft mit Tabelle: user_table
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 @Entity
 @Table(name = "user_table")
 public class User
@@ -20,21 +30,21 @@ public class User
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
-    @Lob
-    @Column
-    @Type(type = "org.hibernate.type.BinaryType")
-    private byte[] salt;
 
-    public byte[] getSalt()
-    {
-        return salt;
-    }
+	@Lob
+	@Column
+	@Type(type = "org.hibernate.type.BinaryType")
+	private byte[] salt;
 
-    public void setSalt(byte[] salt)
-    {
-        this.salt = salt;
-    }
+	public byte[] getSalt()
+	{
+		return salt;
+	}
+
+	public void setSalt(byte[] salt)
+	{
+		this.salt = salt;
+	}
 
 	@Column
 	private String userName;
@@ -50,19 +60,23 @@ public class User
 
 	@Column
 	private String email;
-	
+
 	@Column
 	private String pcName;
-	
+
 	@Column
 	private boolean account;
-	
+
 	@Column
 	private boolean state;
-	
+
 	@Column
 	private String password;
-	
+
+	/**
+	 * Attribute wird nicht in der Datenbank gespeichert und dient ausschließlich
+	 * dem Logingvorgang.
+	 */
 	@Transient
 	private String sucheUsername;
 
@@ -125,7 +139,7 @@ public class User
 	{
 		this.email = email;
 	}
-	
+
 	public String getpcName()
 	{
 		return pcName;
@@ -135,7 +149,7 @@ public class User
 	{
 		this.pcName = pcName;
 	}
-	
+
 	public boolean isAccount()
 	{
 		return account;
@@ -145,7 +159,7 @@ public class User
 	{
 		this.account = account;
 	}
-	
+
 	public boolean isState()
 	{
 		return state;
@@ -165,6 +179,7 @@ public class User
 	{
 		this.sucheUsername = sucheUsername;
 	}
+
 	public String getPassword()
 	{
 		return password;
@@ -176,6 +191,3 @@ public class User
 	}
 
 }
-
-
-

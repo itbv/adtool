@@ -8,6 +8,15 @@ import org.springframework.stereotype.Repository;
 import de.kraueterhaus.adtool.model.intern.ADToolUser;
 
 @Repository
+/**
+ * Persistierung eines User-Objektes auf einer Datenbank, welche in der Klasse
+ * <code>HibernatePersistenceContext</code> definiert wird.
+ * 
+ * Zugriff auf die Datenbank um einen ADTool-Benutzer zu verwalten.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 public class ADToolUserDAOImpl implements ADToolUserDAO
 {
 	public ADToolUserDAOImpl()
@@ -18,6 +27,9 @@ public class ADToolUserDAOImpl implements ADToolUserDAO
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public ADToolUser getUser(String userName)
 	{

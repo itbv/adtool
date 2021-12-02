@@ -1,26 +1,48 @@
 package de.kraueterhaus.adtool.security;
 
+/**
+ * POJO-Objekt (Plain Old Java Object) zur temporären Speicherung von
+ * Anmeldeinformationen zum Durchreichen innerhalb verschiedener Schichten der
+ * Anwendung. Zum Beispiel zwischen Sicherheit und Präsentation.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 public class Credentials
 {
-     private String encryptedPassword;
-     private byte[] salt;
+	private String encryptedPassword;
+	private byte[] salt;
 
-     public Credentials(String encryptedPassword, byte[] salt)
-     {
-         this.encryptedPassword = encryptedPassword;
-         this.salt = salt;
-     }
+	/**
+	 * Konstruktor mit den nötigen Anmeldeattributen.
+	 * 
+	 * @param encryptedPassword
+	 * @param salt
+	 */
+	public Credentials(String encryptedPassword, byte[] salt)
+	{
+		this.encryptedPassword = encryptedPassword;
+		this.salt = salt;
+	}
 
-     public String getEncryptedPassword()
-     {
-         return encryptedPassword;
-     }
+	/**
+	 * Rückgabe ddes kodierten Kennwortes.
+	 * 
+	 * @return
+	 */
+	public String getEncryptedPassword()
+	{
+		return encryptedPassword;
+	}
 
-     public byte[] getSalt()
-     {
-         return salt;
-     }
-
+	/**
+	 * Parameter für Sicherheitserhöhung bei Kennworterstellung.
+	 * 
+	 * @return
+	 */
+	public byte[] getSalt()
+	{
+		return salt;
+	}
 
 }
-

@@ -1,5 +1,11 @@
 package de.kraueterhaus.adtool.model;
 
+/**
+ * POJO (Plain Old Java Object) als Container für Benutzerzugangsdaten.
+ * 
+ * @author IT-Beratung Vogel
+ *
+ */
 public class Login
 {
 	private String userName;

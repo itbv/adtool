@@ -13,6 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 import de.kraueterhaus.adtool.business.service.intern.LoginManager;
 import de.kraueterhaus.adtool.model.Login;
 
+/**
+ * Interaktion des MVC-Paradigmas bezüglich Benutzer (UI/JSP-Views) 
+ * --> über Model (Java-PoJo/Entities in package de.kraueterhaus.adtool.model)
+ * --> gesteuert durch den Controller (Backend).
+ * 
+ * Steuert die GUI bezüglich des Loginvorgangs der ADTool-Anwendung.
+ * 
+ * @author www.kraueterhaus.de
+ *
+ */
 @Controller
 public class ADToolRootController 
 {
@@ -27,6 +37,12 @@ public class ADToolRootController
 	private final String SUCCESS = "redirect:/user/list";
 	private final String FAILED	 = "redirect:/login";
 
+	/**
+	 * Bearbeitung des Login-Prozesses.
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model)
 	{
@@ -35,6 +51,13 @@ public class ADToolRootController
 		return "login";
 	}
 
+	/**
+	 * Prüfung der Zugriffsrecht auf die ADTool-Anwendung.
+	 * 
+	 * @param login
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value = "/access", method = RequestMethod.POST)
 	public ModelAndView accessControl(@ModelAttribute("login") Login login, HttpSession session)
 	{
