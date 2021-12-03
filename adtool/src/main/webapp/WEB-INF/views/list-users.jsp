@@ -78,11 +78,27 @@
 							<td>${user.department}</td>
 							<td>${user.email}</td>
 							<td>${user.pcName}</td>
-							<td><input type="checkbox" style="width:100%;" name="" checked="${user.state}">
-								aktiv</input></td>
-							<td><input type="checkbox" style="width:100%;"name="" checked="${user.account}">
-								gültig</input></td>
-							<td> <a href="${updateLink}">zurücksetzen</a></td>
+							<td>
+								<c:choose>
+									<c:when test="${user.state}">
+											<input disabled="disabled" type="checkbox" style="width: 100%;" checked="false" />
+									</c:when>
+									<c:otherwise>									
+											<input disabled="disabled" type="checkbox" style="width: 100%;" unchecked="true" />
+									</c:otherwise>
+								</c:choose>							
+							</td>		
+							<td>
+								<c:choose>
+									<c:when test="${user.account}">
+											<input disabled="disabled" type="checkbox" style="width: 100%;" checked="false" />
+									</c:when>
+									<c:otherwise>									
+											<input disabled="disabled" type="checkbox" style="width: 100%;" unchecked="true" />
+									</c:otherwise>
+								</c:choose>							
+							</td>
+							<td><a href="${updateLink}">zurücksetzen</a></td>
 
 
 							<td>
