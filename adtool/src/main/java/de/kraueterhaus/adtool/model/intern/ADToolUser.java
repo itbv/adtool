@@ -3,7 +3,10 @@ package de.kraueterhaus.adtool.model.intern;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 /**
  * Hibernate-Entity zur Persistierung der Objekte und deren Attribute auf einer Datenbank.
@@ -31,6 +34,21 @@ public class ADToolUser
 	@Column
 	private String password;
 
+	@Lob
+	@Column
+	@Type(type = "org.hibernate.type.BinaryType")
+	private byte[] salt;
+
+	public byte[] getSalt()
+	{
+		return salt;
+	}
+
+	public void setSalt(byte[] salt)
+	{
+		this.salt = salt;
+	}
+	
 	public String getUserName()
 	{
 		return userName;

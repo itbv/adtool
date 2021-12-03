@@ -44,10 +44,11 @@ public class ADToolRootController
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model)
+	public String login(Model model, HttpSession session)
 	{
 		Login login = new Login();
-		model.addAttribute("login", login);
+		session.setAttribute(MODEL_LOGIN_NAME, login);
+		model.addAttribute(MODEL_LOGIN_NAME, login);
 		return "login";
 	}
 

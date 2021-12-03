@@ -31,8 +31,10 @@
 		modelAttribute="user">
 
 
-		<input type="button" id=button value="Benutzer hinzufügen"
+		<input type="button" id=button value=" Benutzer hinzufügen"
 			onclick="window.location.href='showForm'; return false;" />
+		<input type="button" id=button value="ADTool-Benutzer hinzufügen"
+			onclick="window.location.href='showADForm'; return false;" />
 
 		<form:input path="sucheUsername" cssClass="form-control"
 			placeholder="Benutzername" />

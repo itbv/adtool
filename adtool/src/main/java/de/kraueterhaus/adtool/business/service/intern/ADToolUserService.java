@@ -19,4 +19,11 @@ public interface ADToolUserService
 	 * @return
 	 */
 	public ADToolUser getUser(String userName);
+
+	/**
+	 * Speichern eines ADTool-Benutzers.
+	 * 
+	 * @param user
+	 */
+	public void saveADToolUser(ADToolUser user);
 }

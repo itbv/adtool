@@ -42,7 +42,7 @@ public class MainSessionInterceptor implements HandlerInterceptor
 		}
 
 		boolean isLoginView = ADToolRootController.VIEW_LOGIN_NAME.equals(modelAndView.getViewName());
-		Login login = (Login) modelAndView.getModel().get(ADToolRootController.MODEL_LOGIN_NAME);
+		Login login = (Login) request.getSession().getAttribute(ADToolRootController.MODEL_LOGIN_NAME);
 		String sessionToken = (String) request.getSession().getAttribute(ADToolRootController.SESSION_TOKEN_KEY);
 
 		if (login == null && !isLoginView && sessionToken == null)

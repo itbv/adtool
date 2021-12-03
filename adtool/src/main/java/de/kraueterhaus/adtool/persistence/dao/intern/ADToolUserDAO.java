@@ -22,4 +22,12 @@ public interface ADToolUserDAO
 	 * @return
 	 */
 	public ADToolUser getUser(String userName);
+
+	/**
+	 * Speichert den zu übergebenden ADTool-Benutzer.
+	 * 
+	 * @param user
+	 */
+	public void saveUser(ADToolUser user);
+
 }

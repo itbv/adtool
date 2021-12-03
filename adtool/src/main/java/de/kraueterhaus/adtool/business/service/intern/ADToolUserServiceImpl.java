@@ -6,11 +6,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import de.kraueterhaus.adtool.model.intern.ADToolUser;
 import de.kraueterhaus.adtool.persistence.dao.intern.ADToolUserDAO;
+import de.kraueterhaus.adtool.security.Credentials;
+import de.kraueterhaus.adtool.security.PasswordSecurityHandler;
 
 /**
  * Implementation des Interface ADToolUserService. Zugriffsmöglichkeiten
  * innerhalb der Serviceschicht (Zweite Schicht) innerhalb der
- * Dreic-Schichten-Architektur.
+ * Drei-Schichten-Architektur.
  * 
  * @author www.kraueterhaus.de
  *
@@ -22,13 +24,26 @@ public class ADToolUserServiceImpl implements ADToolUserService
 	 * {@inheritDoc}
 	 */
 	@Autowired
-	private ADToolUserDAO userDao;
+	private ADToolUserDAO adUserDao;
 
 	@Override
 	@Transactional
 	public ADToolUser getUser(String userName)
 	{
-		return userDao.getUser(userName);
+		return adUserDao.getUser(userName);
+	}
+
+	@Override
+	@Transactional
+	/**
+	 * {@inheritDoc }
+	 */
+	public void saveADToolUser(ADToolUser adUser)
+	{
+		Credentials credentials = PasswordSecurityHandler.getInstance().getSecureCredentials(adUser.getPassword());
+		adUser.setPassword(credentials.getEncryptedPassword());
+		adUser.setSalt(credentials.getSalt());
+		adUserDao.saveUser(adUser);
 	}
 
 }

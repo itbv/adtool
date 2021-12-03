@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import de.kraueterhaus.adtool.business.service.UserService;
+import de.kraueterhaus.adtool.business.service.intern.ADToolUserService;
 import de.kraueterhaus.adtool.model.User;
+import de.kraueterhaus.adtool.model.intern.ADToolUser;
 
 /**
  * Interaktion des MVC-Paradigmas bezüglich Benutzer (UI/JSP-Views) --> über
@@ -42,6 +44,9 @@ public class UserControler extends MainController
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ADToolUserService adUserService;
 
 	/**
 	 * Initialsierung der View mit allen Benutzern der Anwendung.
@@ -71,6 +76,33 @@ public class UserControler extends MainController
 		User user = new User();
 		model.addAttribute("user", user);
 		return "user-form";
+	}
+	
+	/**
+	 * Erstellung eines neuen ADTool-Benutzers.
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/showADForm")
+	public String showADFormForAdd(Model model)
+	{
+		ADToolUser adToolUser = new ADToolUser();
+		model.addAttribute("adToolUser", adToolUser);
+		return "adUser-form";
+	}
+
+	/**
+	 * Speichern eines neu erstellten ADTool-Benutzers.
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/saveADUser", method = RequestMethod.POST, params = "save")
+	public String saveADToolUser(@Valid @ModelAttribute("adToolUser") ADToolUser adToolUser)
+	{
+		adUserService.saveADToolUser(adToolUser);
+		return "redirect:/user/list";
 	}
 
 	/**
